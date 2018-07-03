@@ -12,7 +12,21 @@
 <div th:replace="fragments/layout :: header"></div>
 <div class="container">
     <p class="lead text-center">
-        Korzyści z zapylania
+    <table class="table table-bordered">
+        <tr th:bgcolor="gold">
+            <td>login</td>
+            <td>wojewodztwo</td>
+            <td>ule</td>
+            <td>nr dzialki</td>
+        </tr>
+        <tr th:each="beekeeper : ${beekeepers}">
+            <td th:text="${beekeeper.login}"></td>
+            <td th:text="${beekeeper.wojewodztwo}"></td>
+            <td th:text="${beekeeper.ule}"></td>
+            <td th:text="${beekeeper.dzialka}"></td>
+        </tr>
+    </table>
+
     </p>
 </div>
 <div th:replace="fragments/layout :: footer"></div>

@@ -13,7 +13,7 @@
         <div th:replace="fragments/components :: alert (type='danger', message='Sign in error. Please try again.')">Alert</div>
     </th:block>
     <fieldset>
-        <legend>Please Sign In</legend>
+        <legend>Zaloguj się</legend>
         <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <label for="inputPassword" class="col-lg-2 control-label">Hasło</label>
             <div class="col-lg-10">
                 <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" />
             </div>
@@ -30,19 +30,19 @@
             <div class="col-lg-offset-2 col-lg-10">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="_spring_security_remember_me" /> Remember me
+                        <input type="checkbox" name="_spring_security_remember_me" /> Zapamiętaj mnie
                     </label>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-                <button type="submit" class="btn btn-default">Sign in</button>
+                <button type="submit" class="btn btn-default">Zaloguj</button>
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-                <p>New here? <a href="signup" th:href="@{/signup}">Sign Up</a></p>
+                <p>Nowy użytkownik <a href="signup" th:href="@{/signup}">Wyloguj</a></p>
             </div>
         </div>
     </fieldset>

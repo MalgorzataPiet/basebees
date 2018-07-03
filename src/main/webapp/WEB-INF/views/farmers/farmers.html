@@ -12,8 +12,26 @@
 <div th:replace="fragments/layout :: header"></div>
 <div class="container">
     <p class="lead text-center">
-        Korzyści z zapylania
+    <table class="table table-bordered">
+        <tr th:bgcolor="4cae4c">
+            <td>login</td>
+            <td>wojewodztwo</td>
+            <td>uprawa</td>
+            <td>hektary</td>
+            <td>nr dzialki</td>
+        </tr>
+        <tr th:each="farmer : ${farmers}">
+            <td th:text="${farmer.login}"></td>
+            <td th:text="${farmer.wojewodztwo}"></td>
+            <td th:text="${farmer.uprawa}"></td>
+            <td th:text="${farmer.hektary}"></td>
+            <td th:text="${farmer.dzialka}"></td>
+
+        </tr>
+    </table>
+
     </p>
+    <p><a href="/farmersform">Dodawanie do listy</a></p>
 </div>
 <div th:replace="fragments/layout :: footer"></div>
 </body>

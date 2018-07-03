@@ -1,3 +1,6 @@
 package war;
 
-public interface Application {}
+public interface Application {
+
+
+}

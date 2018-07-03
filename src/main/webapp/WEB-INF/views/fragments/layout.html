@@ -6,7 +6,7 @@
 <body>
 
 <!-- Header -->
-<div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+<div class="navbar navbar-inverse navbar-fixed-top " th:fragment="header">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Demo project</a>
+            <a class="navbar-brand" href="#">Baza pszczelarze-rolnicy</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -22,10 +22,21 @@
                     <a href="#" th:href="@{/}">Home</a>
                 </li>
                 <li th:classappend="${module == 'about' ? 'active' : ''}">
-                    <a href="#about" th:href="@{/about}">About</a>
+                    <a href="#about" th:href="@{/about}">Zapylanie</a>
                 </li>
+                <li th:classappend="${module == 'beekeepers' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/beekeepers}">Pszczelarze lista</a>
+                </li>
+                <li th:classappend="${module == 'farmers' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/farmers}">Rolnicy lista</a>
+                </li>
+                </li>
+                <li th:classappend="${module == 'farmersform' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/farmersform}">Formularz dla rolników</a>
+                </li>
+
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">-->
                 <li th:if="${#authorization.expression('!isAuthenticated()')}">
                     <a href="/signin" th:href="@{/signin}">
                         <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign in
@@ -45,8 +56,7 @@
 
 <!-- Footer -->
 <div th:fragment="footer" th:align="center">
-    &copy;&nbsp;<span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2017</span>
-    Demo project <span th:text="${@environment.getProperty('app.version')}"></span>
+    &copy;&nbsp; 2018 For bees project
 </div>
 
 </body>

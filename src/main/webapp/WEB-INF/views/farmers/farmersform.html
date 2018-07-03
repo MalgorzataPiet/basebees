@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title th:text="#{view.index.title}">Formularz</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/layout :: header"></div>
+
+<div class="container" >
+    <div class="content">
+<h3>Aby umieścić dane w bazie wypełnij poniższy formularz:</h3><br>
+
+<form action="#" th:action="@{/farmers}" th:object="${farmers}" method="post">
+ <!--   <div class="form-group">-->
+        <label>  Login:</label>
+        <input type="text" class="form-control" placeholder="login" th:field="*{login}" /><br>
+    <label>  Wojewodztwo:</label>
+    <input type="text" class="form-control" placeholder="wojewodztwo" th:field="*{wojewodztwo}" /><br>
+    <label>  Uprawa:</label>
+    <input type="text" class="form-control" placeholder="uprawa" th:field="*{uprawa}" /><br>
+    <label>  Hektary:</label>
+    <input type="text" class="form-control"  th:field="*{hektary}" /><br>
+    <label>  Nr działki:</label>
+    <input type="text" class="form-control" th:field="*{dzialka}" /><br>
+ <!--   </div>
+    <div class="form-group">
+        <label> Wojewodztwo:</label>
+        <select class="form-control" th:field="*{wojewodztwo}" />
+        <option>pomorskie</option>
+        <option>mazowieckie</option>
+        <option>małopolskie</option></select><br>
+    </div>
+    <div class="form-group">
+        <label> Uprawa:</label>
+        <select class="form-control" th:field="*{uprawa}" />
+        <option>rzepak</option>
+        <option>gryka</option>
+        <option>facelia</option></select><br>
+    </div>
+    <div class="form-group">
+        <label> Powierzchnia w hektarach:</label>
+        <input type="text" class="form-control" th:field="*{hektary}" /><br>
+    </div>
+    <div class="form-group">
+        <label> Numer działki:</label>
+        <input type="text" class="form-control" placeholder="nr działki" th:field="*{dzialka}" /><br>
+    </div>-->
+   <!-- <button type="button" class="btn btn-success" th:value="Submit" >Wyślij</button>
+    <button type="button" class="btn btn-danger" th:value="Reset">Anuluj</button>-->
+    </select>
+    <p><input type="submit" value="Wyślij" /> <input type="reset" value="Usuń" /></p>
+</form>
+</div>
+</div>
+</body>
+</html>
