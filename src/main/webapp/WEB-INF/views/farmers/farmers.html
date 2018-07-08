@@ -19,19 +19,29 @@
             <td>uprawa</td>
             <td>hektary</td>
             <td>nr dzialki</td>
+            <td>data wprowadzenia oferty</td>
+            <td>koniec ważności oferty</td>
+            <td></td>
+
+
         </tr>
         <tr th:each="farmer : ${farmers}">
             <td th:text="${farmer.login}"></td>
-            <td th:text="${farmer.wojewodztwo}"></td>
+           <td th:text="${farmer.wojewodztwo}">
+
             <td th:text="${farmer.uprawa}"></td>
             <td th:text="${farmer.hektary}"></td>
             <td th:text="${farmer.dzialka}"></td>
+            <td th:text="${#dates.format(farmer.startDate, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${#dates.format(farmer.endDate, 'dd-MMM-yyyy')}"></td>
+
+            <td> <a href="#usun" th:href="@{/deleteFarmer(id=${farmer.id})}"  class="btn btn-danger">Usuń</a></td>
 
         </tr>
     </table>
 
     </p>
-    <p><a href="/farmersform">Dodawanie do listy</a></p>
+    <p><a href="/farmersform" class="btn btn-success">Dodawanie do listy</a></p>
 </div>
 <div th:replace="fragments/layout :: footer"></div>
 </body>

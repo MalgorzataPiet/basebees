@@ -15,7 +15,7 @@
     <div class="content">
 <h3>Aby umieścić dane w bazie wypełnij poniższy formularz:</h3><br>
 
-<form action="#" th:action="@{/farmers}" th:object="${farmers}" method="post">
+<form action="#" th:action="@{/farmersform}" th:object="${farmers}" method="post">
  <!--   <div class="form-group">-->
         <label>  Login:</label>
         <input type="text" class="form-control" placeholder="login" th:field="*{login}" /><br>
@@ -27,6 +27,10 @@
     <input type="text" class="form-control"  th:field="*{hektary}" /><br>
     <label>  Nr działki:</label>
     <input type="text" class="form-control" th:field="*{dzialka}" /><br>
+    <label>  Data wprowadzenia do bazy:</label>
+    <input type="date" class="form-control" th:field="*{startDate}" /><br>
+    <label>  Koniec ważności:</label>
+    <input type="date" class="form-control" th:field="*{endDate}" /><br>
  <!--   </div>
     <div class="form-group">
         <label> Wojewodztwo:</label>
@@ -51,9 +55,12 @@
         <input type="text" class="form-control" placeholder="nr działki" th:field="*{dzialka}" /><br>
     </div>-->
    <!-- <button type="button" class="btn btn-success" th:value="Submit" >Wyślij</button>
-    <button type="button" class="btn btn-danger" th:value="Reset">Anuluj</button>-->
-    </select>
-    <p><input type="submit" value="Wyślij" /> <input type="reset" value="Usuń" /></p>
+    <button type="button" class="btn btn-danger" th:value="Reset">Anuluj</button>
+    </select>-->
+    <!--
+    <p><input type="submit" value="Wyślij" /> <input type="reset" value="Usuń" /></p>-->
+    <button type="submit" class="btn btn-success">Wyślij</button>
+    <button type="reset" class="btn btn-danger">Usuń</button>
 </form>
 </div>
 </div>

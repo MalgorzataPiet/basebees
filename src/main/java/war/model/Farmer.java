@@ -17,6 +17,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 
 @Entity
@@ -27,30 +30,45 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "Rolnicy")
 public class Farmer extends BaseEntity {
 
-@NotBlank
+
+
+//@NotBlank
     @Size(max = 255)
     @Column(unique = true, nullable = false)
     private String login;
 
-    @NotBlank
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date startDate;
+
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date endDate;
+
+  //  @NotBlank
     @Size(max = 255)
     @Column(nullable = false)
     private String wojewodztwo;
 
-    @NotBlank
+   // @NotBlank
     @Size(max = 255)
     @Column(nullable = false)
     private String uprawa;
 
-    @NotBlank
-    @Size(max = 255)
-    @Column(nullable = false)
-    private double hektary;
+  //  @NotBlank
 
-    @NotBlank
-    @Size(max = 255)
     @Column(nullable = false)
-    private int dzialka;
+    private Double hektary;
+
+  //  @NotBlank
+
+    @Column(nullable = false)
+    private Integer dzialka;
+
+    @Column
+    private String usun;
+
+
 
 
 }

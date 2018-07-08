@@ -1,20 +1,29 @@
 package war.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import war.model.Farmer;
+import war.repository.FarmerRepository;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+@Service
 public class FarmerService {
-    private List<Farmer> farmers = new ArrayList<>();
+    @Autowired
+   private FarmerRepository farmerRepository;
+   private Date current_date = new Date();
 
-    public List<Farmer> search(String login, String wojewodztwo, String uprawa) {
-        return farmers.stream()
-                .filter(farmer -> farmer.getLogin().contains(login))
-                .filter(farmer -> farmer.getWojewodztwo().contains(wojewodztwo))
-                .filter(farmer -> farmer.getUprawa().contains(uprawa))
-                .collect(toList());
-    }
+//    public void delete(Farmer farmer){
+//     if( farmer.getEndDate()== current_date){
+//         farmerRepository.delete(farmer);
+//        }
+//
+//    }
+
 }

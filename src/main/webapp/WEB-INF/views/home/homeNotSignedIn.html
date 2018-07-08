@@ -8,19 +8,20 @@
     <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
 </head>
-<body>
+<body >
+<div class="container1">
 <div th:replace="fragments/layout :: header"></div>
 <div class="container">
     <div class="text-center">
         <h1>BAZA ROLNICY - PSZCZELARZE</h1>
         <p class="lead">
-            Witamy  na naszej stronie.
+        <h2>    Witamy  na naszej stronie.</h2>
         </p>
         <p>
-            Jeśli chcesz zalogować się do naszej bazy wejdź poniżej.
+        <h4>  Jeśli chcesz zalogować się do naszej bazy wejdź poniżej.</h4>
         </p>
         <p>
-            <a class="btn btn-success btn-lg" id="signup">Sign up</a>
+            <a class="btn btn-success btn-lg" id="signup">Załóż konto</a>
         </p>
     </div>
     <div th:replace="fragments/layout :: footer">&copy; 2016 The Static Templates</div>
@@ -42,5 +43,6 @@
 </script>
 <!-- Signup modal -->
 <div th:replace="fragments/components :: modal(id='signup-modal', title='Signup')"></div>
+</div>
 </body>
 </html>

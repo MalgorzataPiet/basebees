@@ -17,6 +17,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 
 @Entity
@@ -27,25 +30,37 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "Pszczelarze")
 public class Beekeeper extends BaseEntity {
 
-    @NotBlank
+  //  @NotBlank
     @Size(max = 255)
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String login;
 
-    @NotBlank
+  @Column(nullable = false)
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date startDate;
+
+  @Column(nullable = false)
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date endDate;
+
+  //  @NotBlank
     @Size(max = 255)
     @Column(nullable = false)
     private String wojewodztwo;
 
-    @NotBlank
-    @Size(max = 255)
+  //  @NotBlank
+   // @Size(max = 255)
     @Column(nullable = false)
-    private int ule;
+    private Integer ule;
 
-    @NotBlank
-    @Size(max = 255)
+  //  @NotBlank
+  //  @Size(max = 255)
     @Column(nullable = false)
-    private int dzialka;
+    private Integer dzialka;
+
+    @Column
+  @Size(max = 2000)
+  private String mapa;
 
 
 }
