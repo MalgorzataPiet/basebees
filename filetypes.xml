@@ -1,0 +1,10 @@
+<application>
+  <component name="FileTypeManager" version="17">
+    <extensionMap>
+      <mapping pattern="Manifest" type="PLAIN_TEXT" />
+      <mapping pattern="osoba" type="PLAIN_TEXT" />
+      <mapping ext="rar" type="PLAIN_TEXT" />
+      <mapping pattern="Hibernate" type="XML" />
+    </extensionMap>
+  </component>
+</application>

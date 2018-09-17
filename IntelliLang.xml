@@ -1,0 +1,13 @@
+<application>
+  <component name="LanguageInjectionConfiguration">
+    <injection language="JPAQL" injector-id="java">
+      <display-name>EntityManager.createQuery (javax.persistence)</display-name>
+      <place><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("createQuery").withParameters("java.lang.String").definedInClass("javax.persistence.EntityManager"))]]></place>
+      <place disabled="true"><![CDATA[psiParameter().ofMethod(0, psiMethod().withName("createQuery").withParameters("java.lang.String", "java.lang.Class").definedInClass("javax.persistence.EntityManager"))]]></place>
+    </injection>
+    <injection language="XML" injector-id="xml">
+      <display-name>session-factory</display-name>
+      <place><![CDATA[xmlTag().withLocalName(string().equalTo("session-factory")).withNamespace(string().equalTo("http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"))]]></place>
+    </injection>
+  </component>
+</application>
