@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title th:text="#{view.index.title}">Formularz</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/layout :: header"></div>
+
+<div class="container" >
+    <div class="content">
+        <h3>Aby umieścić dane o<b> uprawie </b>w bazie wypełnij poniższy formularz:</h3><br>
+
+<form action="#" th:action="@{/farmersform}" th:object="${farmers}" method="post">
+ <!--   <div class="form-group">-->
+        <!--<label>  Login:</label>-->
+        <!--<input type="text" class="form-control" placeholder="login" th:field="*{login}" /><br>-->
+    <label>  Wojewodztwo:</label><br>
+    <!--<input type="text" class="form-control" placeholder="wojewodztwo" th:field="*{wojewodztwo}" /><br>-->
+    <select  class="form-control" th:field="*{wojewodztwo}">
+        <option value=""> wybierz z listy </option>
+        <option th:value="dolnośląskie">dolnośląskie</option>
+        <option th:value="kujawsko-pomorskie">kujawsko-pomorskie</option>
+        <option th:value="lubelskie">lubelskie</option>
+        <option th:value="lubuskie">lubuskie</option>
+        <option th:value="łódzkie">łódzkie</option>
+        <option th:value="małopolskie">małopolskie</option>
+        <option th:value="mazowieckie">mazowieckie</option>
+        <option th:value="opolskie">pomorskie</option>
+        <option th:value="podkarpackie">podkarpackie</option>
+        <option th:value="pomorskie">pomorskie</option>
+        <option th:value="podlaskie">podlaskie</option>
+        <option th:value="śląskie">śląskie</option>
+        <option th:value="świętokrzyskie">świętokrzyskie</option>
+        <option th:value="warmińsko-mazurskie">warmińsko-mazurskie</option>
+        <option th:value="wielkopolskie">wielkopolskie</option>
+        <option th:value="zachonio-pomorskie">zachodnio-pomorskie</option>
+        <option th:each="farmer : ${farmers}"
+                th:value="${farmer.wojewodztwo}"
+        />
+    </select><br>
+
+    <label>  Miejscowość:</label>
+    <input type="text" class="form-control" placeholder="miejscowość" th:field="*{miejscowosc}" /><br>
+
+    <label>  Uprawa:</label><br>
+    <!--<input type="text" class="form-control" placeholder="wojewodztwo" th:field="*{wojewodztwo}" /><br>-->
+    <select  class="form-control" th:field="*{uprawa}">
+        <option value=""> wybierz z listy </option>
+        <option th:value="rzepak">rzepak</option>
+        <option th:value="gryka">gryka</option>
+        <option th:value="malina">malina</option>
+        <option th:value="borowka">borówka</option>
+        <option th:value="fasola">fasola</option>
+        <option th:value="porzeczka">porzeczka</option>
+        <option th:value="facelia">facelia</option>
+        <option th:value="gorczyca">gorczyca</option>
+        <option th:value="jablonie">jabłonie</option>
+        <option th:value="wisnie">wiśnie</option>
+        <option th:value="grusze">grusze</option>
+        <option th:value="konczyna">kończyna</option>
+        <option th:value="nostrzyk">nostrzyk</option>
+        <option th:each="farmer : ${farmers}"
+                th:value="${farmer.uprawa}"
+        />
+    </select><br>
+    <label>  Hektary:</label>
+    <input type="text" class="form-control" placeholder="ilość hektarów" th:field="*{hektary}" /><br>
+    <label>  Nr działki:</label>
+    <input type="text" class="form-control" placeholder="numer działki" th:field="*{dzialka}" /><br>
+    <label>  Data wprowadzenia do bazy:</label>
+    <input type="date" class="form-control" th:field="*{startDate}" /><br>
+    <label>  Koniec ważności:</label>
+    <input type="date" class="form-control" th:field="*{endDate}" /><br>
+
+
+    <button type="submit" class="btn btn-success">Wyślij</button>
+    <button type="reset" class="btn btn-danger">Usuń</button>
+</form>
+
+</div>
+</div>
+<div th:replace="fragments/layout :: footer"></div>
+</body>
+</html>

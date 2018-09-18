@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/layout :: header"></div>
+<div class="container">
+    <p class="lead text-center">
+    <table class="table table-bordered">
+        <tr th:bgcolor="4cae4c">
+            <td>login</td>
+            <td>województwo</td>
+            <td>miejscowość</td>
+            <td>uprawa</td>
+            <td>hektary</td>
+            <td>nr działki</td>
+            <td>mapa</td>
+            <td>data wprowadzenia oferty</td>
+            <td>koniec ważności oferty</td>
+            <td th:if="${buttons.equals('yes')}"></td>
+
+        </tr>
+        <tr th:each="farmer : ${farmers}">
+           <!-- <span th:text="${#authentication.getPrincipal().getUsername()}"></span>-->
+            <td th:text="${farmer.login}"></td>
+            <td th:text="${farmer.wojewodztwo}"></td>
+            <td th:text="${farmer.miejscowosc}">
+            <td th:text="${farmer.uprawa}"></td>
+            <td th:text="${farmer.hektary}"></td>
+            <td th:text="${farmer.dzialka}"></td>
+            <td >
+                <a href="https://goo.gl/maps/1Q74cKaKCx62" button type="button" class="btn btn-info">  <i class="material-icons">place</i>
+
+                    </button></a></td>
+            <td th:text="${#dates.format(farmer.startDate, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${#dates.format(farmer.endDate, 'dd-MMM-yyyy')}"></td>
+
+            <td th:if="${buttons.equals('yes')}">
+                <a href="#usun" th:href="@{/deleteFarmer(id=${farmer.id})}"  class="btn btn-danger">Usuń</a></td>
+
+
+
+        </tr>
+    </table>
+
+    </p>
+    <p><a href="/farmersform" class="btn btn-success">Dodawanie do listy</a></p>
+</div>
+<div th:replace="fragments/layout :: footer"></div>
+</body>
+</html>

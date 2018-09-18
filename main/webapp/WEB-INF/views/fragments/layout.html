@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<!-- Header -->
+<div class="navbar navbar-inverse navbar-fixed-top " th:fragment="header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Baza pszczelarze-rolnicy</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li th:classappend="${module == 'home' ? 'active' : ''}">
+                    <a href="#" th:href="@{/}">Home</a>
+                </li>
+                <li th:classappend="${module == 'about' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/about}">Zapylanie</a>
+                </li>
+                <li th:classappend="${module == 'beekeepers' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/beekeepers}">Pszczelarze</a>
+                </li>
+                <li th:classappend="${module == 'farmers' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/farmers}">Rolnicy</a>
+                </li>
+                <!--<div class="dropdown">-->
+                    <!--<button class="dropbtn">Rolnicy-->
+                        <!--<i class="fa fa-caret-down"></i>-->
+                    <!--</button>-->
+                    <!--<div class="dropdown-content">-->
+                        <!--<a href="#">Moja lista</a>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+                <li th:classappend="${module == 'findBeekeepers' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/findBeekeeper}">Pszczelarze moja lista</a>
+                </li>
+                <li th:classappend="${module == 'findFarmers' ? 'active' : ''}">
+                <a href="#about" th:href="@{/findFarmer}">Rolnicy moja lista</a>
+            </li>
+                </li>
+                <li th:classappend="${module == 'farmersform' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/farmersform}">Formularz rolnicy</a>
+                </li>
+                <li th:classappend="${module == 'beekeepersform' ? 'active' : ''}">
+                    <a href="#about" th:href="@{/beekeepersform}">Formularz pszczelarze</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li th:if="${#authorization.expression('!isAuthenticated()')}">
+                    <a href="/signin" th:href="@{/signin}">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign in
+                    </a>
+                </li>
+                <li th:if="${#authorization.expression('isAuthenticated()')}">
+                    <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
+                    </a>
+                    <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:fragment="footer" th:align="center">
+    &copy;&nbsp; 2018 For farmers & beekeepers project
+</div>
+
+</body>
+</html>

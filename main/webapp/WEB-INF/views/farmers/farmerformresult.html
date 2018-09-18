@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formularz result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<h1>Result</h1>
+<p th:text="'login: ' + ${farmersform.login}" />
+<p th:text="'wojewodztwo: ' + ${farmersform.wojeodztwo}" />
+<p th:text="'uprawa: ' + ${farmerform.uprawa}" />
+<p th:text="'hektary: ' + ${farmerform.hektary}" />
+<p th:text="'dzialka: ' + ${farmersform.dzialka}" />
+
+<a href="/farmers/farmersform">Submit another message</a>
+<a href="/farmers">Zobacz listę</a>
+</body>
+</html>

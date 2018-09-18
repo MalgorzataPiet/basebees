@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:pages="http://www.w3.org/1999/xhtml">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/layout :: header"></div>
+<div class="container">
+    <p class="lead text-center">
+    <table class="table table-bordered">
+        <tr th:bgcolor="gold">
+
+
+            <td>login</td>
+            <!--<td><a class="sorted">województwo</a></td>-->
+            <td>województwo</td>
+            <td>miejscowość</td>
+            <td>ule</td>
+            <td>nr działki</td>
+            <td>mapa</td>
+            <td>data wprowadzenia oferty</td>
+            <td>koniec ważności oferty</td>
+            <td th:if="${buttons.equals('yes')}"></td>
+        </tr>
+    <!--<tbody th:remove="all-but-first">-->
+        <tr th:each="beekeeper : ${beekeepers}">
+            <td th:text="${beekeeper.login}"></td>
+            <td th:text="${beekeeper.wojewodztwo}"></td>
+            <td th:text="${beekeeper.miejscowosc}"></td>
+            <td th:text="${beekeeper.ule}"></td>
+            <td th:text="${beekeeper.dzialka}"></td>
+            <td>
+                <button type="button" class="btn btn-info">  <i class="material-icons">place</i>
+                </button> </td>
+            <td th:text="${#dates.format(beekeeper.startDate, 'dd-MMM-yyyy')}"></td>
+            <td th:text="${#dates.format(beekeeper.endDate, 'dd-MMM-yyyy')}"></td>
+
+            <!--<td> &lt;!&ndash;<span th:text="${#authentication.getPrincipal().getUsername()}"></span>&ndash;&gt;-->
+            <td th:if="${buttons.equals('yes')}">
+              <a href="#usun" th:href="@{/deleteBeekeeper(id=${beekeeper.id})}"  class="btn btn-danger">Usuń</a></td>
+
+        </tr></tbody>
+    </table>
+
+    </p>
+
+    <p><a href="/beekeepersform" class="btn btn-warning">Dodawanie do listy</a></p>
+</div>
+<div th:replace="fragments/layout :: footer"></div>
+</body>
+</html>
